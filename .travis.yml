@@ -1,0 +1,8 @@
+sudo: required
+services:
+    - docker
+#you can use the full path for tagging, or simply you can put a name instead of full path
+before_install:
+    - docker build -t willrocha92/docker-react -f Dockerfile.dev .
+script:    
+    - docker run -e CI=true willrocha92/docker-react npm run test
